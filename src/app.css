@@ -1,0 +1,10 @@
+@import './style/theme/index.less';
+@import './style/reset.css';
+
+.App {
+   width: 200px;
+}
+
+.abababab {
+   background-color: red;
+}
