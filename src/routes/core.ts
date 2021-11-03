@@ -1,88 +1,94 @@
 import { RouteConfig } from './type'
 
 export interface IOption {
-   isMenu?: boolean
-   icon?: string
-   key?: string
-   exact?: boolean
-   component?: React.ComponentType<any>
-   [propName: string]: any
+	isMenu?: boolean
+	icon?: string
+	key?: string
+	exact?: boolean
+	component?: React.ComponentType<any>
+	[propName: string]: any
 }
 
 export interface IMenu {
-   path: string
-   title: string
-   iconName?: string
-   show?: boolean
-   subMenu?: IMenu[]
+	path: string
+	title: string
+	iconName?: string
+	show?: boolean
+	subMenu?: IMenu[]
 }
 
 let success = false
+let history: History
+
 export const routes: RouteConfig[] = []
 export const menus: IMenu[] = []
 
 function RouteFactory(path: string, option: IOption) {
-   const router = routes.find(r => r.path === path)
+	let config: RouteConfig, menu: IMenu
 
-   if (router?.path === path) throw new Error('重复的 path')
+	config = {
+		path: `${path}`,
+		exact: option?.exact || false, // 一级路由默认为 false
+		component: option.component,
+		render: option?.render,
+		routes: []
+	}
 
-   let config: RouteConfig, menu: IMenu
+	menu = {
+		path: `${path}`,
+		title: option?.title,
+		show: option?.show,
+		iconName: option?.iconName,
+		subMenu: []
+	}
 
-   config = {
-      path: `/${path}`,
-      exact: option?.option || false, // 一级路由
-      component: option.component,
-      render: option?.render,
-      routes: []
-   }
+	routes.push(config)
 
-   menu = {
-      path: `/${path}`,
-      title: option?.title,
-      show: option?.show,
-      iconName: option?.iconName,
-      subMenu: []
-   }
+	menus.push(menu)
 
-   routes.push(config)
+	const createRoute = (_path: string, option: IOption, createMenu = true) => {
+		config?.routes?.push({
+			path: `${path}${_path}`,
+			exact: option?.exact ?? true,
+			component: option?.component,
+			render: option?.render
+		})
+		if (createMenu) {
+			menu?.subMenu?.push({
+				path: `${path}${_path}`,
+				title: option?.title,
+				show: option?.show,
+				iconName: option?.iconName
+			})
+		}
+	}
 
-   menus.push(menu)
-
-   const createRoute = (_path: string, option: IOption, createMenu = true) => {
-      config?.routes?.push({
-         path: `/${path}/${_path}`,
-         exact: option?.exact ?? true,
-         component: option?.component,
-         render: option?.render
-      })
-      if (createMenu) {
-         menu?.subMenu?.push({
-            path: `/${path}/${_path}`,
-            title: option?.title,
-            show: option?.show,
-            iconName: option?.iconName
-         })
-      }
-   }
-
-   return {
-      config,
-      createRoute
-   }
+	return {
+		config,
+		createRoute
+	}
 }
 
 export const createGroup = (path: string, option: IOption) => {
-   return RouteFactory(path, option)
+	return RouteFactory(path, option)
+}
+
+export const initHistory = (h: History) => {
+	history = h
 }
 
 export const resetRoutes = () => {
-   routes.length = 0
+	routes.length = 0
+}
+
+export const getHistory = (): History => {
+	return history
 }
 
 export const getRoutes = () => {
-   return routes
+	return routes
 }
 
 export const getMenus = () => {
-   return menus
+	return menus
 }
