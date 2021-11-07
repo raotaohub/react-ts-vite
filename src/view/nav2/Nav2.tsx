@@ -1,9 +1,9 @@
 /*
  * @Author: raotaohub
  * @Date: 2021-10-24 17:21:32
- * @LastEditTime: 2021-11-01 22:15:17
+ * @LastEditTime: 2021-11-07 11:56:27
  * @LastEditors: raotaohub
- * @FilePath: \ts-react\src\view\nav2\Nav2.tsx
+ * @FilePath: \react-ts-vite\src\view\nav2\Nav2.tsx
  * @Description: Edit......
  */
 import MenuView from '@/comopoents/public/Layout/MenuView/MenuView'
@@ -18,7 +18,7 @@ const Nav2 = (props: any) => {
    //    const history = useHistory()
    const location = useLocation()
    return (
-      <Layout style={{ padding: '16px' }}>
+      <>
          <Layout.Content
             className='site-layout-background'
             style={{
@@ -31,7 +31,7 @@ const Nav2 = (props: any) => {
             Nav2父路由{location.pathname}
             {renderRoutes(route.routes)}
          </Layout.Content>
-      </Layout>
+      </>
    )
 }
 

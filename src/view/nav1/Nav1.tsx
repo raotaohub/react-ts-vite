@@ -1,9 +1,9 @@
 /*
  * @Author: raotaohub
  * @Date: 2021-10-31 12:53:32
- * @LastEditTime: 2021-11-02 22:00:56
+ * @LastEditTime: 2021-11-07 17:03:39
  * @LastEditors: raotaohub
- * @FilePath: \ts-react\src\view\nav1\Nav1.tsx
+ * @FilePath: \react-ts-vite\src\view\nav1\Nav1.tsx
  * @Description: Edit......
  */
 import MenuView from '@/comopoents/public/Layout/MenuView/MenuView'
@@ -23,7 +23,6 @@ const Nav1 = (props: any) => {
 	useEffect(() => {
 		let current = true
 
-		message.success('welcome')
 		Api.Recommend.getBanner().then(res => {
 			console.warn(res)
 		})
@@ -37,20 +36,10 @@ const Nav1 = (props: any) => {
 	}
 
 	return (
-		<Layout>
-			<MenuView
-				toggle={toggle}
-				collapsed={collapsed}
-				width={200}
-				className='site-layout-background'
-			/>
+		<>
+			<MenuView toggle={toggle} collapsed={collapsed} width={200} className='site-layout-background' />
 			<Layout style={{ padding: '16px' }}>
-				<Loading
-					loading={!ready}
-					size='large'
-					tip='正在初始化,请稍等...'
-					height='100vh'
-				>
+				<Loading loading={!ready} size='large' tip='正在初始化,请稍等...' height='100vh'>
 					<Layout.Content
 						className='site-layout-background'
 						style={{
@@ -65,7 +54,7 @@ const Nav1 = (props: any) => {
 					</Layout.Content>
 				</Loading>
 			</Layout>
-		</Layout>
+		</>
 	)
 }
 

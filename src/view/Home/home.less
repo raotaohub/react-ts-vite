@@ -1,0 +1,57 @@
+.main {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    // box-shadow: 0px 0px 15px 1px gray;
+    background-color: #bcb4ba;
+    /* 遮罩层： 如果希望方块被压在遮罩层下面，可以利用z-index ，这里的方块图层貌似是作为父元素 ？ 遮罩层压在父元素上面*/
+    background: -moz-linear-gradient(top, rgba(255, 255, 255, 0), #fff);
+    background: -o-linear-gradient(top, rgba(255, 255, 255, 0), #fff);
+    background: linear-gradient(
+        to bottom right,
+        rgba(223, 193, 193, 0.438) 0%,
+        rgba(240, 144, 144, 0.555) 25%,
+        #ff7eba 50%,
+        rgba(245, 40, 235, 0.26) 75%,
+        #b877cf 100%
+    );
+    background: linear-gradient(left, rgba(255, 0, 119, 0.397), rgba(255, 121, 81, 0.363));
+    background: linear-gradient(right, rgba(238, 50, 50, 0.253), rgb(255, 255, 255));
+    transition: 4s all;
+    background-size: 100% 100%;
+    /* 发现音乐 热门 历史记录 我的 */
+    .main-box {
+        padding: 1% 10% 5% 10%;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: start;
+        color: grey;
+        column-gap: 5%;
+        box-sizing: border-box;
+        .magnetic {
+            .title {
+                font-size: 36px;
+                color: grey;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
+            box-sizing: border-box;
+            min-width: 180px;
+            border: 1px saddlebrown solid;
+            .matter {
+                display: block;
+                min-height: 100px;
+                max-height: 260px;
+                border: 1px solid royalblue;
+                box-sizing: border-box;
+            }
+
+            .matter::-webkit-scrollbar {
+                width: 5px;
+            }
+            .matter::-webkit-scrollbar-thumb {
+                background: #b9b9b938;
+                border-radius: 2px;
+            }
+        }
+    }
+}

@@ -1,0 +1,83 @@
+.ta-l {
+    text-align: left;
+}
+
+.ta-c {
+    text-align: center;
+}
+
+.ta-r {
+    text-align: right;
+}
+
+.flex {
+    display: flex;
+}
+
+.mr-auto {
+    margin-right: auto;
+}
+
+.ml-auto {
+    margin-left: auto;
+}
+
+/* flex +水平基线居中 */
+.fx--between {
+    display: flex;
+    justify-content: space-between;
+}
+/* flex + 水平居中 + 垂直居中 */
+.fxy--center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* flex + 水平居中+ 垂直两端居中 */
+.fx--between-center {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+/* flex + 水平居中 */
+.fx--center {
+    display: flex;
+    justify-content: center;
+}
+/* flex + 垂直居中 */
+.fy--center {
+    display: flex;
+    align-items: center;
+}
+
+.display-none {
+    display: none !important;
+}
+
+.float-l {
+    float: left;
+}
+
+.float-r {
+    float: right;
+}
+
+@flexs: -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9;
+@flexsLen: length(@flexs);
+.flexCountLoop(@index) when(@index > 0) {
+    .flexCountLoop(@index - 1);
+
+    @value: extract(@flexs, @index);
+    .flex-@{value} {
+        flex: ~'@{value}' !important;
+    }
+}
+.flexCountLoop(@flexsLen);
+
+// overflow
+.overflow-y-scroll {
+    overflow-y: scroll;
+}
+.overflow-x-scroll {
+    overflow-x: scroll;
+}

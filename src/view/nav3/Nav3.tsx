@@ -1,9 +1,9 @@
 /*
  * @Author: raotaohub
  * @Date: 2021-10-24 17:21:32
- * @LastEditTime: 2021-11-01 22:15:54
+ * @LastEditTime: 2021-11-07 11:56:16
  * @LastEditors: raotaohub
- * @FilePath: \ts-react\src\view\nav3\Nav3.tsx
+ * @FilePath: \react-ts-vite\src\view\nav3\Nav3.tsx
  * @Description: Edit......
  */
 import { Layout } from 'antd'
@@ -16,7 +16,7 @@ const Nav3 = (props: any) => {
 	//    const history = useHistory()
 	const location = useLocation()
 	return (
-		<Layout style={{ padding: '16px' }}>
+		<>
 			<Layout.Content
 				className='site-layout-background'
 				style={{
@@ -29,7 +29,7 @@ const Nav3 = (props: any) => {
 				Nav3父路由{location.pathname}
 				{renderRoutes(route.routes)}
 			</Layout.Content>
-		</Layout>
+		</>
 	)
 }
 
