@@ -1,7 +1,7 @@
 /*
  * @Author: raotaohub
  * @Date: 2021-10-31 12:39:02
- * @LastEditTime: 2021-11-07 22:04:39
+ * @LastEditTime: 2021-11-08 21:16:46
  * @LastEditors: raotaohub
  * @FilePath: \react-ts-vite\src\view\Home\Home.tsx
  * @Description: Edit......
@@ -18,7 +18,7 @@ import LazyLoad from 'react-lazyload'
 
 import { IPresonalizedResult } from '@/services/recommend/type'
 import './home.less'
-
+import Zune from '@/assets/image/zune.png'
 const Home = (props: RouteConfigComponentProps) => {
   const { route } = props
   const location = useLocation()
@@ -61,14 +61,14 @@ const Home = (props: RouteConfigComponentProps) => {
                   return (
                     <div className='flex'>
                       <LazyLoad
+                        offset={-10}
+                        scrollContainer='.matter'
                         classNamePrefix='flex-1'
-                        placeholder={
-                          <img width='100%' height='100%' src={require('@/assets/image/zune.png')} alt='music' />
-                        }
+                        placeholder={<img width='100%' height='100%' src={Zune} alt='music' />}
                       >
                         <img src={v.picUrl + '?param=200x200'} width='100%' height='100%' alt='music' />
                       </LazyLoad>
-                      {/* <div className='flex-5'>{v.name}</div> */}
+                      <div className='flex-5'>{v.name}</div>
                     </div>
                   )
                 })}
