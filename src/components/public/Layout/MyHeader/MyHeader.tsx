@@ -5,12 +5,12 @@ import { Layout, Menu } from 'antd'
 
 //------------------- 引入样式
 import './myHeader.less'
-import { getMenus } from '@/routes/core'
+import { getMenus } from '@routes/core'
 import { Link, useLocation } from 'react-router-dom'
 //------------------- antd组件解构
 const { Header } = Layout
 
-import Zune from '@/assets/image/zune.png'
+import Zune from '@assets/image/zune.png'
 
 function MyHeader(props: any): ReactElement {
   const { pathname } = useLocation()

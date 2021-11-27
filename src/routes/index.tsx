@@ -1,19 +1,18 @@
-import { Redirect } from 'react-router'
-import React, { lazy } from 'react'
+import { lazy } from 'react'
 import { createGroup, getMenus, getRoutes } from './core'
-import SuspenseComponent from '@/comopoents/public/SuspenseComponent/SuspenseComponent'
+import SuspenseComponent from '@components/public/SuspenseComponent/SuspenseComponent'
 /*  */
-const Home = lazy(() => import('@/view/Home/Home'))
+const Home = lazy(() => import('@view/Home/Home'))
 /*  */
-const Nav1 = lazy(() => import('@/view/nav1/Nav1'))
-const Logs = lazy(() => import('@/view/nav1/Logs/Logs'))
-const Rate = lazy(() => import('@/view/nav1/Rate/Rate'))
+const Nav1 = lazy(() => import('@view/nav1/Nav1'))
+const Logs = lazy(() => import('@view/nav1/Logs/Logs'))
+const Rate = lazy(() => import('@view/nav1/Rate/Rate'))
 /*  */
-const Nav2 = lazy(() => import('@/view/nav2/Nav2'))
-const Like = lazy(() => import('@/view/nav2/Like/Like'))
-const Star = lazy(() => import('@/view/nav2/Star/Star'))
+const Nav2 = lazy(() => import('@view/nav2/Nav2'))
+const Like = lazy(() => import('@view/nav2/Like/Like'))
+const Star = lazy(() => import('@view/nav2/Star/Star'))
 /*  */
-const Nav3 = lazy(() => import('@/view/nav3/Nav3'))
+const Nav3 = lazy(() => import('@view/nav3/Nav3'))
 
 const home = createGroup('/', {
   title: 'home',

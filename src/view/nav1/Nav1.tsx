@@ -1,15 +1,15 @@
 /*
  * @Author: raotaohub
  * @Date: 2021-10-31 12:53:32
- * @LastEditTime: 2021-11-16 23:27:21
+ * @LastEditTime: 2021-11-27 12:56:37
  * @LastEditors: raotaohub
  * @FilePath: \react-ts-vite\src\view\nav1\Nav1.tsx
  * @Description: Edit......
  */
-import MenuView from '@/comopoents/public/Layout/MenuView/MenuView'
-import Loading from '@/comopoents/public/Loading/Loading'
-import { Api } from '@/services'
-import { Button, Layout, message } from 'antd'
+import MenuView from '@components/public/Layout/MenuView/MenuView'
+import Loading from '@components/public/Loading/Loading'
+import { Api } from '@services/index'
+import { Button, Layout } from 'antd'
 import React, { useEffect } from 'react'
 import { useHistory, useLocation } from 'react-router'
 import { renderRoutes } from 'react-router-config'

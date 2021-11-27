@@ -1,24 +1,25 @@
 /*
  * @Author: raotaohub
  * @Date: 2021-10-31 12:39:02
- * @LastEditTime: 2021-11-08 21:16:46
+ * @LastEditTime: 2021-11-27 13:00:33
  * @LastEditors: raotaohub
  * @FilePath: \react-ts-vite\src\view\Home\Home.tsx
  * @Description: Edit......
  */
 
-import Console from '@/comopoents/common/Console/Console'
-import MiniPlayer from '@/comopoents/common/MiniPlayer/MiniPlayer'
-import { Api } from '@/services'
+import Console from '@components/common/Console/Console'
+import MiniPlayer from '@components/common/MiniPlayer/MiniPlayer'
+import { Api } from '@services/index'
 import { Layout } from 'antd'
 import React, { useEffect, useState } from 'react'
 import { useHistory, useLocation } from 'react-router'
 import { renderRoutes, RouteConfigComponentProps } from 'react-router-config'
 import LazyLoad from 'react-lazyload'
 
-import { IPresonalizedResult } from '@/services/recommend/type'
+import { IPresonalizedResult } from '@services/recommend/type'
+import Zune from '@assets/image/zune.png'
+
 import './home.less'
-import Zune from '@/assets/image/zune.png'
 const Home = (props: RouteConfigComponentProps) => {
   const { route } = props
   const location = useLocation()
