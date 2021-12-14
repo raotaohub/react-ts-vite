@@ -23,15 +23,15 @@ function MyHeader(props: any): ReactElement {
         <Menu theme='light' mode='horizontal' selectedKeys={[pathname]} defaultSelectedKeys={['1']}>
           {getMenus().map(menu => {
             return (
-              <>
-                {menu.show && (
-                  <Menu.Item key={menu.path}>
-                    <Link to={menu.path}>
-                      <span className={'selected-item item fc-main'}>{menu.title}</span>
-                    </Link>
-                  </Menu.Item>
-                )}
-              </>
+              // <>
+              //   {menu.show && (
+              <Menu.Item key={menu.path}>
+                <Link to={menu.path}>
+                  <span className={'selected-item item fc-main'}>{menu.title}</span>
+                </Link>
+              </Menu.Item>
+              //   )}
+              // </>
             )
           })}
         </Menu>

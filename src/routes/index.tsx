@@ -1,6 +1,8 @@
+import React from 'react'
 import { lazy } from 'react'
 import { createGroup, getMenus, getRoutes } from './core'
 import SuspenseComponent from '@components/public/SuspenseComponent/SuspenseComponent'
+import { Redirect } from 'react-router-dom'
 /*  */
 const Home = lazy(() => import('@view/Home/Home'))
 /*  */
@@ -13,6 +15,8 @@ const Like = lazy(() => import('@view/nav2/Like/Like'))
 const Star = lazy(() => import('@view/nav2/Star/Star'))
 /*  */
 const Nav3 = lazy(() => import('@view/nav3/Nav3'))
+/*  */
+const VList = lazy(() => import('@view/vList/VList'))
 
 const home = createGroup('/', {
   title: 'home',
@@ -22,11 +26,14 @@ const home = createGroup('/', {
   // render: () => <Redirect to={'/nav1'} push />
 })
 
-//
+/**
+ * @description
+ */
 const nav1 = createGroup('/nav1', {
   title: 'nav1',
   show: true,
   component: SuspenseComponent(Nav1)
+  // render: () => <Redirect to={'/nav1/log'} push />
 })
 
 nav1.createRoute('/log', {
@@ -38,7 +45,9 @@ nav1.createRoute('/rate', {
   title: 'rate',
   component: SuspenseComponent(Rate)
 })
-//
+/**
+ * @description
+ */
 const nav2 = createGroup('/nav2', {
   title: 'nav2',
   show: true,
@@ -53,11 +62,21 @@ nav2.createRoute('/star', {
   title: 'star',
   component: SuspenseComponent(Star)
 })
-//
+/**
+ * @description
+ */
 const nav3 = createGroup('/nav3', {
   title: 'nav3',
   show: true,
   component: SuspenseComponent(Nav3)
+})
+/**
+ * @description
+ */
+const vList = createGroup('/vlist', {
+  title: 'vList',
+  show: true,
+  component: SuspenseComponent(VList)
 })
 
 export const routes = getRoutes()

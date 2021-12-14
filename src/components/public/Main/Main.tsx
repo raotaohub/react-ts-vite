@@ -1,7 +1,7 @@
 /*
  * @Author: raotaohub
  * @Date: 2021-02-19 20:44:47
- * @LastEditTime: 2021-11-27 12:57:37
+ * @LastEditTime: 2021-12-14 22:41:19
  * @LastEditors: raotaohub
  * @FilePath: \react-ts-vite\src\components\public\Main\Main.tsx
  * @Description: Edit......
@@ -53,7 +53,19 @@ const Main = (props: IProps): ReactElement => {
         <HashRouter>
           <Layout style={{ height: '100%', width: '100%' }}>
             <MyHeader />
-            <Layout>{renderRoutes(routes)}</Layout>
+            <Layout>
+              <Layout.Content
+                className='site-layout-background'
+                style={{
+                  overflowY: 'auto',
+                  overflowX: 'hidden',
+                  padding: 10,
+                  height: '100%'
+                }}
+              >
+                {renderRoutes(routes)}
+              </Layout.Content>
+            </Layout>
           </Layout>
         </HashRouter>
       )}
