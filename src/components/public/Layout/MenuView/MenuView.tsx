@@ -6,7 +6,7 @@ import { Layout, Menu } from 'antd'
 
 //------------------- 引入样式
 import './menuView.less'
-import { getMenus } from '@/routes/core'
+import { getMenus } from '@routes/core'
 // import reactLogo from '../../assets/logo192.png';
 //------------------- antd组件解构
 const { Sider } = Layout

@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import * as path from 'path'
 import reactRefresh from '@vitejs/plugin-react-refresh'
+import react from '@vitejs/plugin-react'
 // import vitePluginImport from 'vite-plugin-babel-import'
 // import styleImport from 'vite-plugin-style-import'
 
@@ -34,16 +35,13 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      // '@pages': path.resolve(__dirname, './app/pages'),
-      // '@': path.resolve(__dirname, './src'),
-      // '@api': path.resolve(__dirname, './src/api'),
-      // '@components': path.resolve(__dirname, './src/components'),
-      // '@style': path.resolve(__dirname, './src/style'),
-      // '@utils': path.resolve(__dirname, './src/utils'),
-      // '@page': path.resolve(__dirname, './src/page'),
-      // '@assets': path.resolve(__dirname, './src/assets'),
-      // '@store': path.resolve(__dirname, './src/store'),
-      // '@routes': path.resolve(__dirname, './src/routes'),
+      '@view': path.resolve(__dirname, './src/view'),
+      '@api': path.resolve(__dirname, './src/api'),
+      '@components': path.resolve(__dirname, './src/components'),
+      '@store': path.resolve(__dirname, './src/store'),
+      '@routes': path.resolve(__dirname, './src/routes'),
+      '@services': path.resolve(__dirname, './src/services'),
+      '@assets': path.resolve(__dirname, './src/assets')
     }
   },
   plugins: [reactRefresh()]
