@@ -6,6 +6,7 @@ export interface IOption {
 	key?: string
 	exact?: boolean
 	component?: React.ComponentType<any>
+	title?:string
 	[propName: string]: any
 }
 
@@ -36,7 +37,7 @@ function RouteFactory(path: string, option: IOption) {
 
 	menu = {
 		path: `${path}`,
-		title: option?.title,
+		title: `${option?.title}`,
 		show: option?.show,
 		iconName: option?.iconName,
 		subMenu: []
@@ -48,6 +49,7 @@ function RouteFactory(path: string, option: IOption) {
 
 	const createRoute = (_path: string, option: IOption, createMenu = true) => {
 		config?.routes?.push({
+			title:`${option?.title}`,
 			path: `${path}${_path}`,
 			exact: option?.exact ?? true,
 			component: option?.component,
@@ -56,7 +58,7 @@ function RouteFactory(path: string, option: IOption) {
 		if (createMenu) {
 			menu?.subMenu?.push({
 				path: `${path}${_path}`,
-				title: option?.title,
+				title: `${option?.title}`,
 				show: option?.show,
 				iconName: option?.iconName
 			})

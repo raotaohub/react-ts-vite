@@ -1,7 +1,7 @@
 /*
  * @Author: raotaohub
  * @Date: 2021-02-19 20:44:47
- * @LastEditTime: 2021-12-14 22:41:19
+ * @LastEditTime: 2021-12-17 22:08:12
  * @LastEditors: raotaohub
  * @FilePath: \react-ts-vite\src\components\public\Main\Main.tsx
  * @Description: Edit......
@@ -35,7 +35,6 @@ interface IProps {
 const Main = (props: IProps): ReactElement => {
   const [collapsed, setCollapsed] = React.useState(false)
   const { ready, routes } = props
-  console.log(routes)
 
   useEffect(() => {
     let current = true
