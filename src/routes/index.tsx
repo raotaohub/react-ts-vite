@@ -82,6 +82,7 @@ const vList = createGroup('/vlist', {
   title: 'vList',
   show: true,
   component: SuspenseComponent(VL as any)
+  // render: () => <Redirect to={'/vlist/vlist'} push />
 })
 
 vList.createRoute('/vlist', {

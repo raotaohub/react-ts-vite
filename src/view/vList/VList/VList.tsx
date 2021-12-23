@@ -30,7 +30,7 @@ const VList = () => {
       }))
       // console.log('offset', offset, 'ele.clientHeight', ele.clientHeight)
     }
-  }, 200)
+  }, 500)
 
   const vlist = useMemo(() => {
     const list = sourceData.slice(range.start, range.end)
@@ -54,6 +54,10 @@ const VList = () => {
         Start
       </Button>
       <div style={{ display: 'flex' }}>
+        <div className='flex-1'>当前DOM元素长度：{sourceData.length}</div>
+        <div className='flex-1'>当前DOM元素长度：{vlist.length}</div>
+      </div>
+      <div style={{ display: 'flex' }}>
         <div
           ref={containerRef}
           style={{
@@ -63,7 +67,6 @@ const VList = () => {
             flex: '1'
           }}
         >
-          <div>当前DOM元素长度：{sourceData.length}</div>
           <ul
             style={{
               width: '100%',
@@ -95,7 +98,6 @@ const VList = () => {
           }}
           onScroll={computeRange}
         >
-          <div>当前DOM元素长度：{vlist.length}</div>
           <ul
             style={{
               height: scrollViewHeight - topOffset,

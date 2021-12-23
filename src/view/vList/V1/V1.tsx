@@ -1,7 +1,7 @@
 /*
  * @Author: raotaohub
  * @Date: 2021-10-24 17:21:32
- * @LastEditTime: 2021-12-19 00:06:27
+ * @LastEditTime: 2021-12-19 22:33:16
  * @LastEditors: raotaohub
  * @FilePath: \react-ts-vite\src\view\vList\V1\V1.tsx
  * @Description: Edit......
@@ -20,7 +20,59 @@ const columns = [
     dataIndex: 'age'
   },
   {
-    title: 'Address',
+    title: 'Address1',
+    dataIndex: 'address'
+  },
+  {
+    title: 'Address2',
+    dataIndex: 'address'
+  },
+  {
+    title: 'Address3',
+    dataIndex: 'address'
+  },
+  {
+    title: 'Address4',
+    dataIndex: 'address'
+  },
+  {
+    title: 'Address5',
+    dataIndex: 'address'
+  },
+  {
+    title: 'Address6',
+    dataIndex: 'address'
+  },
+  {
+    title: 'Address7',
+    dataIndex: 'address'
+  },
+  {
+    title: 'Address8',
+    dataIndex: 'address'
+  },
+  {
+    title: 'Address9',
+    dataIndex: 'address'
+  },
+  {
+    title: 'Address10',
+    dataIndex: 'address'
+  },
+  {
+    title: 'Address11',
+    dataIndex: 'address'
+  },
+  {
+    title: 'Address12',
+    dataIndex: 'address'
+  },
+  {
+    title: 'Address13',
+    dataIndex: 'address'
+  },
+  {
+    title: 'Address14',
     dataIndex: 'address'
   }
 ]
@@ -59,6 +111,14 @@ const data: DataType[] = [
   }
 ]
 
+for (let i = 5; i < 500; i++) {
+  data.push({
+    key: `${i}`,
+    name: 'Joe Black',
+    age: 99,
+    address: 'Sidney No. 1 Lake Park'
+  })
+}
 // rowSelection object indicates the need for row selection
 const rowSelection = {
   onChange: (selectedRowKeys: React.Key[], selectedRows: DataType[]) => {
@@ -85,12 +145,15 @@ const V1 = () => {
         <Radio value='radio'>radio</Radio>
       </Radio.Group>
 
-      <Divider />
-
       <Table
+        bordered
         rowSelection={{
           type: selectionType,
           ...rowSelection
+        }}
+        pagination={{
+          pageSize: 200,
+          defaultPageSize: 200
         }}
         columns={columns}
         dataSource={data}

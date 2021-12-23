@@ -18,7 +18,7 @@ import globalStore from './store/globalStore/globalStore'
 import Main from '@components/public/Main/Main'
 // ------
 import { menus, routes } from './routes'
-import { useHistory } from 'react-router'
+import { useHistory, useLocation } from 'react-router-dom'
 import './app.css'
 
 // todo 在这里可以向 globalStore 设置某个特定的值

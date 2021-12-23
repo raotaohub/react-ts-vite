@@ -1,7 +1,7 @@
 /*
  * @Author: raotaohub
  * @Date: 2021-10-24 17:21:32
- * @LastEditTime: 2021-12-19 00:37:53
+ * @LastEditTime: 2021-12-19 16:17:09
  * @LastEditors: raotaohub
  * @FilePath: \react-ts-vite\src\view\vList\VList.tsx
  * @Description: Edit......
@@ -32,8 +32,6 @@ const VList = (props: RouteConfigComponentProps) => {
         })}
       </Tabs>
       <Layout>{renderRoutes(route?.routes)}</Layout>
-
-      {/* <div style={{ height: 500 }}>{renderRoutes(route?.routes)}</div> */}
     </>
   )
 }

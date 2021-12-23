@@ -12,8 +12,6 @@
       "@style/*": ["style/*"],
       "@services/*": ["services/*"],
       "@assets/*": ["assets/*"]
-
-      
     },
     "target": "ESNext",
     "useDefineForClassFields": true,
