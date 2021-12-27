@@ -5,16 +5,33 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const TsconfigPahtsPlugin = require('tsconfig-paths-webpack-plugin')
 const AntDesignThemePlugin = require('antd-theme-webpack-plugin')
+const WebpackBar = require('webpackbar')
+
+const IS_DEV = process.env.IS_DEV
 
 module.exports = {
   //  entry: '../src/index.tsx',
   output: {
     path: path.join(__dirname, '../dist'),
     filename: 'js/[name].js',
-    chunkFilename: '[name].chunk.js'
+    chunkFilename: '[name].chunk.js',
+    assetModuleFilename: 'images/[name].[contenthash:8].[ext]'
   },
   module: {
     rules: [
+      {
+        test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+        type: 'asset',
+        parser: {
+          dataUrlCondition: {
+            maxSize: 4 * 1024
+          }
+        }
+      },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2?)$/,
+        type: 'asset/resource'
+      },
       {
         test: /\.(js|jsx|ts|tsx)$/,
         exclude: /node-modules/,
@@ -24,10 +41,6 @@ module.exports = {
           cacheDirectory: true
         }
       },
-      // {
-      //    test: /\.css$/,
-      //    use: ['style-loader', 'css-loader']
-      // },
       {
         test: /\.(le|c)ss$/,
         use: [
@@ -40,19 +53,6 @@ module.exports = {
                 javascriptEnabled: true,
                 modifyVars: {}
               }
-            }
-          }
-        ]
-      },
-      {
-        test: /\.(png|svg|jpg|gif)$/,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 8192,
-              name: 'imgs/[name]_[hash:8][ext]',
-              fallback: 'file-loader?name=imgs/[name]_[hash:8][ext]'
             }
           }
         ]
@@ -86,8 +86,19 @@ module.exports = {
       themeVariables: ['@primary-color', 'primary-color', 'warning-color', 'success-color', 'info-color'],
       indexFileName: '../public/index.html',
       generateOnce: false
+    }),
+    new WebpackBar({
+      name: IS_DEV ? '正在启动' : '正在打包',
+      color: '#fa8c16'
     })
-  ]
+  ],
+  // 开启缓存
+  cache: {
+    type: 'filesystem',
+    buildDependencies: {
+      config: [__filename]
+    }
+  }
 }
 // 'primary-color': '#4caf50',
 // 'warning-color': '#fb8c00',

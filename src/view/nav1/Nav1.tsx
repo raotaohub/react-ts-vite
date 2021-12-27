@@ -1,7 +1,7 @@
 /*
  * @Author: raotaohub
  * @Date: 2021-10-31 12:53:32
- * @LastEditTime: 2021-12-14 22:51:07
+ * @LastEditTime: 2021-12-20 22:17:32
  * @LastEditors: raotaohub
  * @FilePath: \react-ts-vite\src\view\nav1\Nav1.tsx
  * @Description: Edit......
@@ -11,8 +11,8 @@ import Loading from '@components/public/Loading/Loading'
 import { Api } from '@services/index'
 import { Button, Layout } from 'antd'
 import React, { useEffect } from 'react'
-import { useHistory, useLocation } from 'react-router'
 import { renderRoutes } from 'react-router-config'
+import { useHistory, useLocation } from 'react-router-dom'
 
 const Nav1 = (props: any) => {
   const { route, ready = true } = props

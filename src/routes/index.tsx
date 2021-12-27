@@ -16,7 +16,12 @@ const Star = lazy(() => import('@view/nav2/Star/Star'))
 /*  */
 const Nav3 = lazy(() => import('@view/nav3/Nav3'))
 /*  */
-const VList = lazy(() => import('@view/vList/VList'))
+const VL = lazy(() => import('@view/vList/VList'))
+const V1 = lazy(() => import('@view/vList/V1/V1'))
+const V2 = lazy(() => import('@view/vList/V2/V2'))
+const VList = lazy(() => import('@view/vList/VList/VList'))
+/*  */
+const Compose = lazy(() => import('@view/compose/Compose'))
 
 const home = createGroup('/', {
   title: 'home',
@@ -76,7 +81,32 @@ const nav3 = createGroup('/nav3', {
 const vList = createGroup('/vlist', {
   title: 'vList',
   show: true,
+  component: SuspenseComponent(VL as any)
+  // render: () => <Redirect to={'/vlist/vlist'} push />
+})
+
+vList.createRoute('/vlist', {
+  title: 'vlist',
   component: SuspenseComponent(VList)
+})
+
+vList.createRoute('/v1', {
+  title: 'v1',
+  component: SuspenseComponent(V1)
+})
+
+vList.createRoute('/v2', {
+  title: 'v2',
+  component: SuspenseComponent(V2)
+})
+
+/**
+ * @description
+ */
+const compose = createGroup('/compose', {
+  title: 'compose',
+  show: true,
+  component: SuspenseComponent(Compose)
 })
 
 export const routes = getRoutes()

@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite'
 import * as path from 'path'
 import reactRefresh from '@vitejs/plugin-react-refresh'
-import react from '@vitejs/plugin-react'
 // import vitePluginImport from 'vite-plugin-babel-import'
 // import styleImport from 'vite-plugin-style-import'
 
@@ -41,7 +40,8 @@ export default defineConfig({
       '@store': path.resolve(__dirname, './src/store'),
       '@routes': path.resolve(__dirname, './src/routes'),
       '@services': path.resolve(__dirname, './src/services'),
-      '@assets': path.resolve(__dirname, './src/assets')
+      '@assets': path.resolve(__dirname, './src/assets'),
+      '@hooks': path.resolve(__dirname, './src/hooks')
     }
   },
   plugins: [reactRefresh()]

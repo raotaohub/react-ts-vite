@@ -12,8 +12,12 @@ const { Header } = Layout
 
 import Zune from '@assets/image/zune.png'
 
-function MyHeader(props: any): ReactElement {
+const MyHeader = (): ReactElement => {
   const { pathname } = useLocation()
+  const [menList, setMenuList] = React.useState(() => {
+    return getMenus().filter(menu => menu.show)
+  })
+
   return (
     <Header className='header flex px8'>
       <Link to={'/'} className=''>
@@ -21,17 +25,13 @@ function MyHeader(props: any): ReactElement {
       </Link>
       <div className='flex-1'>
         <Menu theme='light' mode='horizontal' selectedKeys={[pathname]} defaultSelectedKeys={['1']}>
-          {getMenus().map(menu => {
+          {menList.map(menu => {
             return (
-              // <>
-              //   {menu.show && (
               <Menu.Item key={menu.path}>
                 <Link to={menu.path}>
                   <span className={'selected-item item fc-main'}>{menu.title}</span>
                 </Link>
               </Menu.Item>
-              //   )}
-              // </>
             )
           })}
         </Menu>

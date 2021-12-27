@@ -1,55 +1,37 @@
 /*
  * @Author: raotaohub
  * @Date: 2021-10-24 17:21:32
- * @LastEditTime: 2021-12-14 23:15:24
+ * @LastEditTime: 2021-12-19 16:17:09
  * @LastEditors: raotaohub
  * @FilePath: \react-ts-vite\src\view\vList\VList.tsx
  * @Description: Edit......
  */
-import { Button } from 'antd'
-import React, { useState } from 'react'
-import { renderRoutes } from 'react-router-config'
+import { Tabs } from 'antd'
+import React from 'react'
+import { renderRoutes, RouteConfigComponentProps } from 'react-router-config'
+import Layout from 'antd/lib/layout/layout'
+import { useHistory } from 'react-router-dom'
+import './vlist.less'
 
-const VList = (props: any) => {
+const { TabPane } = Tabs
+
+const VList = (props: RouteConfigComponentProps) => {
   const { route } = props
-
-  const [list, setList] = useState<any[]>([])
-
-  const renderList = () => {
-    return (
-      <ul>
-        {list.map(v => (
-          <li>{v}</li>
-        ))}
-      </ul>
-    )
-  }
+  const hostory = useHistory()
 
   return (
     <>
-      <Button
-        type='primary'
-        onClick={() => {
-          let now = Date.now()
-          const total = 10000
-          setList(() => {
-            const list = []
-            console.time()
-            for (let i = 0; i < total; i++) {
-              list.push(i)
-            }
-            console.timeEnd()
-            return list
-          })
-          setTimeout(() => {
-            console.log('总运行时间：', Date.now() - now)
-          }, 0)
+      <Tabs
+        onChange={(key: string) => {
+          hostory.push(key)
         }}
       >
-        Start
-      </Button>
-      {renderList()}
-      {renderRoutes(route.routes)}
+        {route?.routes?.map(route => {
+          console.log(route)
+          return <TabPane tab={route?.title as string} key={route?.path as string}></TabPane>
+        })}
+      </Tabs>
+      <Layout>{renderRoutes(route?.routes)}</Layout>
     </>
   )
 }
