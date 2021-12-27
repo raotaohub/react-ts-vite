@@ -11,10 +11,24 @@ module.exports = {
   output: {
     path: path.join(__dirname, '../dist'),
     filename: 'js/[name].js',
-    chunkFilename: '[name].chunk.js'
+    chunkFilename: '[name].chunk.js',
+    assetModuleFilename: 'images/[name].[contenthash:8].[ext]'
   },
   module: {
     rules: [
+      {
+        test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+        type: 'asset',
+        parser: {
+          dataUrlCondition: {
+            maxSize: 4 * 1024
+          }
+        }
+      },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2?)$/,
+        type: 'asset/resource'
+      },
       {
         test: /\.(js|jsx|ts|tsx)$/,
         exclude: /node-modules/,
@@ -24,10 +38,6 @@ module.exports = {
           cacheDirectory: true
         }
       },
-      // {
-      //    test: /\.css$/,
-      //    use: ['style-loader', 'css-loader']
-      // },
       {
         test: /\.(le|c)ss$/,
         use: [
@@ -41,28 +51,6 @@ module.exports = {
                 modifyVars: {}
               }
             }
-          }
-        ]
-      },
-      {
-        test: /\.(png|svg|jpg|gif)$/,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 8192,
-              name: 'imgs/[name]_[hash:8][ext]',
-              fallback: 'file-loader?name=imgs/[name]_[hash:8][ext]'
-            }
-          }
-        ]
-      },
-      {
-        test: /\.(png|jpg|gif)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {}
           }
         ]
       }
