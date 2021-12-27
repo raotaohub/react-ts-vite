@@ -1,7 +1,7 @@
 import { Button } from 'antd'
 import React, { useMemo, useRef, useState } from 'react'
 import { ITEM_HEIGHT, PRE_LOAD_COUNT, SCROLL_VIEW_HEIGHT } from '../constant'
-import { useThrottle } from 'hooks/useThrottle'
+import { useThrottle } from '@hooks/useThrottle'
 
 const VList = () => {
   const containerRef = useRef<HTMLDivElement | null>(null)

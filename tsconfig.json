@@ -11,7 +11,8 @@
       "@utils/*": ["utils/*"],
       "@style/*": ["style/*"],
       "@services/*": ["services/*"],
-      "@assets/*": ["assets/*"]
+      "@assets/*": ["assets/*"],
+      "@hooks/*": ["hooks/*"],
     },
     "target": "ESNext",
     "useDefineForClassFields": true,

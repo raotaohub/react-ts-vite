@@ -5,6 +5,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const TsconfigPahtsPlugin = require('tsconfig-paths-webpack-plugin')
 const AntDesignThemePlugin = require('antd-theme-webpack-plugin')
+const WebpackBar = require('webpackbar')
+
+const IS_DEV = process.env.IS_DEV
 
 module.exports = {
   //  entry: '../src/index.tsx',
@@ -83,8 +86,19 @@ module.exports = {
       themeVariables: ['@primary-color', 'primary-color', 'warning-color', 'success-color', 'info-color'],
       indexFileName: '../public/index.html',
       generateOnce: false
+    }),
+    new WebpackBar({
+      name: IS_DEV ? '正在启动' : '正在打包',
+      color: '#fa8c16'
     })
-  ]
+  ],
+  // 开启缓存
+  cache: {
+    type: 'filesystem',
+    buildDependencies: {
+      config: [__filename]
+    }
+  }
 }
 // 'primary-color': '#4caf50',
 // 'warning-color': '#fb8c00',
